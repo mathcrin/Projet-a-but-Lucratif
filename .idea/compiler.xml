@@ -7,16 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="PABL-Service-discovery" />
-        <module name="PABL-Client-Restaurant" />
         <module name="PABL-Commande-Article" />
+        <module name="PABL-Restaurant" />
         <module name="gateway" />
+        <module name="PABL-Client" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="PABL-Client-Restaurant" options="-parameters" />
+      <module name="PABL-Client" options="-parameters" />
       <module name="PABL-Commande-Article" options="-parameters" />
+      <module name="PABL-Restaurant" options="-parameters" />
       <module name="PABL-Service-discovery" options="-parameters" />
       <module name="gateway" options="-parameters" />
     </option>

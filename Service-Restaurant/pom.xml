@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>fr.uphf</groupId>
-	<artifactId>PABL-Client-Restaurant</artifactId>
+	<artifactId>PABL-Restaurant</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PABL-Client-Restaurant</name>
 	<description>Service de gestion des client et restaurant</description>
