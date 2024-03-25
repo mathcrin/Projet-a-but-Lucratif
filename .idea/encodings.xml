@@ -4,7 +4,9 @@
     <file url="file://$PROJECT_DIR$/Gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Serveur-discovery/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Service-Client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Service-Client/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Service-Commande-Article/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Service-Restaurant/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Service-Restaurant/src/main/resources" charset="UTF-8" />
   </component>
 </project>

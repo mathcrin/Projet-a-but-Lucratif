@@ -13,12 +13,15 @@
         <module name="PABL-Client" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="PABL-Client-Restaurant" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="PABL-Client" options="-parameters" />
+      <module name="PABL-Client" options="" />
       <module name="PABL-Commande-Article" options="-parameters" />
-      <module name="PABL-Restaurant" options="-parameters" />
+      <module name="PABL-Restaurant" options="" />
       <module name="PABL-Service-discovery" options="-parameters" />
       <module name="gateway" options="-parameters" />
     </option>
