@@ -1,8 +1,8 @@
 spring:
   application:
-    name: restaurants
+    name: commandes
   datasource:
-    url: jdbc:mysql://xn--connects-h1a.fr:3306/spring-restaurant
+    url: jdbc:mysql://xn--connects-h1a.fr:3306/spring-commande
     username: root
     password: springboot-PABL-25.03.2024
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -16,7 +16,7 @@ spring:
 
 server:
   servlet:
-    context-path: /restaurants
+    context-path: /commandes
 eureka:
   client:
     serviceUrl:
