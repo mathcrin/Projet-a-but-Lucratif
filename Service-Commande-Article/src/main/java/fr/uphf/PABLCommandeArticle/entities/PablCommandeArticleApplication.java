@@ -64,15 +64,10 @@ class Article {
 	@Column(name = "ingredients")
 	private String ingredients;
 
-	@Column(name = "id_categorie")
-	private Integer idCategorie;
+	@ManyToOne
+	@JoinColumn(name = "categorie_id")
+	private Categorie categorie;
 
 	// Constructeur avec tous les champs, sauf l'ID
-	public Article(String nom, Integer idRestaurant, double prix, String ingredients, Integer idCategorie) {
-		this.nom = nom;
-		this.idRestaurant = idRestaurant;
-		this.prix = prix;
-		this.ingredients = ingredients;
-		this.idCategorie = idCategorie;
-	}
+
 }
