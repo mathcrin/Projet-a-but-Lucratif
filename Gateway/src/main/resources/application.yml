@@ -17,7 +17,6 @@ spring:
           predicates:
             - Path=/restaurants/**
 
-
 eureka:
   client:
     serviceUrl:
