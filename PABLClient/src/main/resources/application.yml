@@ -14,9 +14,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
 
-#server:
-#  servlet:
-#    context-path: /clients
+server:
+  servlet:
+    context-path: /clients
 eureka:
   client:
     serviceUrl:

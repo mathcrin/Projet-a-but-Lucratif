@@ -7,8 +7,9 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class CreateRestaurantResponse {
-    private Long id;
+    private Integer id;
     private String nom;
     private String addresse;
     private String telephone;
+    private String mail;
 }
