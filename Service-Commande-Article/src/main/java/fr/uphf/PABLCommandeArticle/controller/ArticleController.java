@@ -3,6 +3,7 @@ package fr.uphf.PABLCommandeArticle.controller;
 
 import fr.uphf.PABLCommandeArticle.dto.PostArticleRequest;
 import fr.uphf.PABLCommandeArticle.dto.GetArticleResponse;
+import fr.uphf.PABLCommandeArticle.entity.Article;
 import fr.uphf.PABLCommandeArticle.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,12 +11,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/articles")
 public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
+
+    // TODO : à revérifier
+    @GetMapping
+    public Mono<ResponseEntity<List<Article>>> getArticles() {
+        return articleService.getArticles()
+                .map(response -> new ResponseEntity<>(response, HttpStatus.OK))
+                .defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
     @PostMapping("/create")
     public Mono<ResponseEntity<GetArticleResponse>> createArticle(@RequestBody PostArticleRequest request) {

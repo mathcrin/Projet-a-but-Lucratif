@@ -1,0 +1,26 @@
+<section class="page-section clearfix" style="display: flex;justify-content: center; align-items: center">
+  <div class="container text-bg-primary py-4 py-xl-5">
+    <div class="row mb-5">
+      <div class="col-md-8 col-xl-6 col-xxl-8 text-center mx-auto">
+        <h2>Choisissez, Commandez et Retirez votre comande </h2>
+        <p class="w-lg-50">Vous pouvez venir retirer votre commande n&#39;importe quand le jour même*</p>
+      </div>
+      <app-connection></app-connection>
+    </div>
+    <div class="main">
+      <ul class="cards">
+        <li class="cards_item" *ngFor="let item of articles">
+          <div class="card">
+            <div class="card_image"><img [src]="'src/assets/img/plat' + item.id + '.jpg'"  [alt]="item.ingredients" /></div>
+            <div class="card_content">
+              <h2 class="card_title">{{item.nom}} <span>{{item.prix}}</span></h2>
+              <div class="card_text">
+                <p>{{item.ingredients}}</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "commande")
-public class CommandeEntity {
+public class Commande {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
@@ -41,5 +41,5 @@ public class CommandeEntity {
             joinColumns = @JoinColumn(name = "commande_id"),
             inverseJoinColumns = @JoinColumn(name = "article_id")
     )
-    private List<ArticleEntity> article;
+    private List<Article> article;
 }
