@@ -9,6 +9,8 @@ spring:
   application:
     name: gateway-service
   cloud:
+    inetutils:
+      default-hostname: localhost
     gateway:
       globalcors:
         corsConfigurations:
