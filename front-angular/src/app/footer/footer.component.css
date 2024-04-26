@@ -1,0 +1,58 @@
+
+--boundary_.oOo._y0tCptLZweuSn8BGhPCpogR2hlK5fM8q
+Content-Length: 168
+Content-Type: application/octet-stream
+If-Match: "73da84631bdb9940040db1eb6b498d81"
+X-File-MD5: 79b8a0c83305169f5b2fbbbdf68966eb
+X-File-Mtime: 1712677185
+X-File-Path: /cours/M1/BDD-Repartie-Spring/TP/Projet-a-but-Lucratif/front-angular/src/app/footer/footer.component.html
+
+<footer class="text-center footer text-faded py-5">
+  <div class="container">
+    <p class="m-0 small">Copyright&nbsp;©&nbsp;8Etoiles 2024</p>
+  </div>
+</footer>
+
+--boundary_.oOo._y0tCptLZweuSn8BGhPCpogR2hlK5fM8q
+Content-Length: 619
+Content-Type: application/octet-stream
+If-Match: "813205c26da0628db81bde69f0733782"
+X-File-MD5: e4a6535805e17bc9c9c89c02263a42fc
+X-File-Mtime: 1712677185
+X-File-Path: /cours/M1/BDD-Repartie-Spring/TP/Projet-a-but-Lucratif/front-angular/src/app/footer/footer.component.spec.ts
+
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { FooterComponent } from './footer.component';
+
+describe('FooterComponent', () => {
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [FooterComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(FooterComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
+--boundary_.oOo._y0tCptLZweuSn8BGhPCpogR2hlK5fM8q
+Content-Length: 400962
+Content-Type: application/octet-stream
+X-File-MD5: 0efea5e3c694983050b84fbbc94537c6
+X-File-Mtime: 1712678355
+X-File-Path: /cours/M1/BDD-Repartie-Spring/TP/Projet-a-but-Lucratif/front-angular/.angular/cache/17.3.2/vite/deps/chunk-Q6IENKS4.js.map
+
+{
+  "version": 3,
+  "sources": ["../../../../../node_modules/@angular/common/fesm2022/common.mjs"],
+  "sourcesContent": ["/**\n * @license Angular v17.3.1\n * (c) 2010-2022 Google LLC. https://angular.io/\n * License: MIT\n */\n\nimport * as i0 from '@angular/core';\nimport { Injectable, InjectionToken, inject, Optional, Inject, EventEmitter, ɵɵinject, ɵfindLocaleData, ɵLocaleDataIndex, ɵgetLocaleCurrencyCode, ɵgetLocalePluralCase, LOCALE_ID, ɵregisterLocaleData, ɵstringify, Directive, Input, createNgModule, NgModuleRef, ɵRuntimeError, ɵformatRuntimeError, Host, Attribute, RendererStyleFlags2, untracked, ɵisPromise, ɵisSubscribable, Pipe, DEFAULT_CURRENCY_CODE, NgModule, Version, ɵɵdefineInjectable, PLATFORM_ID, ɵIMAGE_CONFIG, Renderer2, ElementRef, Injector, ɵperformanceMarkFeature, NgZone, ChangeDetectorRef, numberAttribute, booleanAttribute, ɵIMAGE_CONFIG_DEFAULTS, ɵunwrapSafeValue } from '@angular/core';\nexport { ɵIMAGE_CONFIG as IMAGE_CONFIG } from '@angular/core';\nlet _DOM = null;\nfunction getDOM() {\n  return _DOM;\n}\nfunction setRootDomAdapter(adapter) {\n  _DOM ??= adapter;\n}\n/* tslint:disable:requireParameterType */\n/**\n * Provides DOM operations in an environment-agnostic way.\n *\n * @security Tread carefully! Interacting with the DOM directly is dangerous and\n * can introduce XSS risks.\n */\nclass DomAdapter {}\n\n/**\n * This class wraps the platform Navigation API which allows server-specific and test\n * implementations.\n */\nclass PlatformNavigation {\n  static {\n    this.ɵfac = function PlatformNavigation_Factory(t) {\n      return new (t || PlatformNavigation)();\n    };\n  }\n  static {\n    this.ɵprov = /* @__PURE__ */i0.ɵɵdefineInjectable({\n      token: PlatformNavigation,\n      factory: () => (() => window.navigation)(),\n      providedIn: 'platform'\n    });\n  }\n}\n(() => {\n  (typeof ngDevMode === \"undefined\" || ngDevMode) && i0.ɵsetClassMetadata(PlatformNavigation, [{\n    type: Injectable,\n    args: [{\n      providedIn: 'platform',\n      useFactory: () => window.navigation\n    }]\n  }], null, null);\n})();\n\n/**\n * A DI Token representing the main rendering context.\n * In a browser and SSR this is the DOM Document.\n * When using SSR, that document is created by [Domino](https://github.com/angular/domino).\n *\n * @publicApi\n */\nconst DOCUMENT = new InjectionToken(ngDevMode ? 'DocumentToken' : '');\n\n/**\n * This class should not be used directly by an application developer. Instead, use\n * {@link Location}.\n *\n * `PlatformLocation` encapsulates all calls to DOM APIs, which allows the Router to be\n * platform-agnostic.\n * This means that we can have different implementation of `PlatformLocation` for the different\n * platforms that Angular supports. For example, `@angular/platform-browser` provides an\n * implementation specific to the browser environment, while `@angular/platform-server` provides\n * one suitable for use with server-side rendering.\n *\n * The `PlatformLocation` class is used directly by all implementations of {@link LocationStrategy}\n * when they need to interact with the DOM APIs like pushState, popState, etc.\n *\n * {@link LocationStrategy} in turn is used by the {@link Location} service which is used directly\n * by the {@link Router} in order to navigate between routes. Since all interactions between {@link\n * Router} /\n * {@link Location} / {@link LocationStrategy} and DOM APIs flow through the `PlatformLocation`\n * class, they are all platform-agnostic.\n *\n * @publicApi\n */\nclass PlatformLocation {\n  historyGo(relativePosition) {\n    throw new Error(ngDevMode ? 'Not implemented' : '');\n  }\n  static {\n    this.ɵfac = function PlatformLocation_Factory(t) {\n      return new (t || PlatformLocation)();\n    };\n  }\n  static {\n    this.ɵprov = /* @__PURE__ */i0.ɵɵdefineInjectable({\n      token: PlatformLocation,\n      factory: () => (() => inject(BrowserPlatformLocation))(),\n      providedIn: 'platform'\n    });\n  }\n}\n(() => {\n  (typeof ngDevMode === \"undefined\" || ngDevMode) && i0.ɵsetClassMetadata(PlatformLocation, [{\n    type: Injectable,\n    args: [{\n      providedIn: 'platform',\n      useFactory: () => inject(BrowserPlatformLocation)\n    }]\n  }], null, null);\n})();\n/**\n * @description\n * Indicates when a location is initialized.\n *\n * @publicApi\n */\nconst LOCATION_INITIALIZED = new InjectionToken(ngDevMode ? 'Location Initialized' : '');\n/**\n * `PlatformLocation` encapsulates all of the direct calls to platform APIs.\n * This class should not be used directly by an application developer. Instead, use\n * {@link Location}.\n *\n * @publicApi\n */\nclass BrowserPlatformLocation extends PlatformLocation {\n  constructor() {\n    super();\n    this._doc = inject(DOCUMENT);\n    this._location = window.location;\n    this._history = window.history;\n  }\n  getBaseHrefFromDOM() {\n    return getDOM().getBaseHref(this._doc);\n  }\n  onPopState(fn) {\n    const window = getDOM().getGlobalEventTarget(this._doc, 'window');\n    window.addEventListener('popstate', fn, false);\n    return () => window.removeEventListener('popstate', fn);\n  }\n  onHashChange(fn) {\n    const window = getDOM().getGlobalEventTarget(this._doc, 'window');\n    window.addEventListener('hashchange', fn, false);\n    return () => window.removeEventListener('hashchange', fn);\n  }\n  get href() {\n    return this._location.href;\n  }\n  get protocol() {\n    return this._location.protocol;\n  }\n  get hostname() {\n    return this._location.hostname;\n  }\n  get port() {\n    return this._location.port;\n  }\n  get pathname() {\n    return this._location.pathname;\n  }\n  get search() {\n    return this._location.search;\n  }\n  get hash() {\n    return this._location.hash;\n  }\n  set pathname(newPath) {\n    this._location.pathname = newPath;\n  }\n  pushState(state, title, url) {\n    this._history.pushState(state, title, url);\n  }\n  replaceState(state, title, url) {\n    this._history.replaceState(state, title, url);\n  }\n  forward() {\n    this._history.forward();\n  }\n  back() {\n    this._history.back();\n  }\n  historyGo(relativePosition = 0) {\n    this._history.go(relativePosition);\n  }\n  getState() {\n    return this._history.state;\n  }\n  static {\n    this.ɵfac = function BrowserPlatformLocation_Factory(t) {\n

@@ -1,4 +1,5 @@
 package fr.uphf.PABLCommandeArticle.dto;
+import fr.uphf.PABLCommandeArticle.entity.Categorie;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -17,5 +18,5 @@ public class GetArticleResponse {
     private Integer restaurantId;
     private Double prix;
     private String ingredients;
-    private Integer categorieId;
+    private String categorie;
 }
