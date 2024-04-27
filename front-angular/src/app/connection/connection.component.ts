@@ -1,26 +1,14 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
+
+// Import the AuthService type from the SDK
 import { AuthService } from '@auth0/auth0-angular';
-import {AsyncPipe, DOCUMENT, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-auth-button',
-  template: `
-    <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-      <button (click)="auth.logout({ logoutParams: { returnTo: document.location.pathname. } })">
-        Log out
-      </button>
-    </ng-container>
-
-    <ng-template #loggedOut>
-      <button (click)="auth.loginWithRedirect()">Log in</button>
-    </ng-template>
-  `,
-  imports: [
-    NgIf,
-    AsyncPipe
-  ],
+  template: '<button (click)="auth.loginWithRedirect()">Log in</button>',
   standalone: true
 })
 export class AuthButtonComponent {
-  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
+  // Inject the authentication service into your component through the constructor
+  constructor(public auth: AuthService) {}
 }
