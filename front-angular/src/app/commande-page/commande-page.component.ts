@@ -1,6 +1,6 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import axios from 'axios';
-import {ConnectionComponent} from "../connection/connection.component";
+import {AuthButtonComponent} from "../connection/connection.component";
 
 interface Article {
   id: number;
@@ -17,8 +17,7 @@ interface Article {
   styleUrls: ['./commande-page.component.css'],
   standalone: true,
   imports: [
-    ConnectionComponent
-
+    AuthButtonComponent
   ],
 })
 
