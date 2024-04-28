@@ -13,9 +13,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class PostArticleRequest {
-    private Integer clientId;
-    private LocalDateTime dateCommande;
-    private Integer restaurantId;
-    private String statut;
-    private String details;
+    private Integer id;
+    private Integer idRestaurant;
+    private String ingredients;
+    private String nom;
+    private Double prix;
+    private Integer categorieId;
 }

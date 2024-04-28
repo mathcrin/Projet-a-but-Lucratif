@@ -3,6 +3,7 @@ import lombok.*;
 import lombok.AllArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  *
@@ -13,10 +14,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class PostCommandeRequest {
-    private String nom;
-    private Long restaurantId;
-    private Double prix;
-    private String ingredients;
-    private Long categorieId;
+    private Integer idClient;
+    private LocalDateTime dateCommande;
+    private String details;
+    private Integer idRestaurant;
+    private String status;
+    private List<Long> articles;
 }
 

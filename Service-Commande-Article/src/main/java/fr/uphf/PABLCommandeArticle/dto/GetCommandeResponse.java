@@ -14,9 +14,10 @@ import java.time.LocalDateTime;
 @Builder
 public class GetCommandeResponse {
     private Integer id;
-    private Integer clientId;
+    private Integer idClient;
     private LocalDateTime dateCommande;
-    private Integer restaurantId;
-    private String statut;
+    private Integer idRestaurant;
+    private String status;
     private String details;
+    private String articles;
 }

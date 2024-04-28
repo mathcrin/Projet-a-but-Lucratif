@@ -41,5 +41,17 @@ public class Commande {
             joinColumns = @JoinColumn(name = "commande_id"),
             inverseJoinColumns = @JoinColumn(name = "article_id")
     )
-    private List<Article> article;
+    private List<Article> articles;
+
+    // Calcul du prix total de la commande
+    @Transient // Pour éviter la persistance en base de données
+    public double getPrixTotal() {
+        double prixTotal = 0.0;
+        if (articles != null) {
+            for (Article article : articles) {
+                prixTotal += article.getPrix();
+            }
+        }
+        return prixTotal;
+    }
 }
