@@ -16,3 +16,4 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes) // Ajout du fournisseur de routage
   ]
 };
+
