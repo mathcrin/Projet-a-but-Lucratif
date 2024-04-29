@@ -58,7 +58,7 @@ export class CommandePageComponent implements OnInit {
   ngOnInit(): void {
     this.getToken();
 
-    axios.get('http://localhost:8080/commandes/articles', {
+    axios.get('http://localhost:8082/commandes/articles', {
       headers: {
         Authorization: `Bearer ${this.token}`
       }
