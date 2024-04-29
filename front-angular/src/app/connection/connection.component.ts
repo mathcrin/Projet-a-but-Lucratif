@@ -2,17 +2,19 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import {AsyncPipe, DOCUMENT, NgIf} from '@angular/common';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { UserService } from '../user.service'; // Remplacez par le chemin vers votre service
 
 @Component({
   selector: 'app-auth-button',
   template: `
     <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-      <button (click)="logout()">DECONNEXION</button>
+      <button (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })">
+        DECONNEXION
+      </button>
     </ng-container>
 
     <ng-template #loggedOut>
-      <button (click)="login()">CONNEXION</button>
+      <button (click)="auth.loginWithRedirect()">CONNEXION</button>
     </ng-template>
   `,
   standalone: true,
@@ -20,27 +22,20 @@ import { UserService } from '../user.service';
     AsyncPipe,
     NgIf
   ],
-  styleUrls: ['./connection.component.css']
+  styleUrls: ['./connection.component.css'] // Ajout du lien vers le fichier CSS
 })
 export class AuthButtonComponent implements OnInit {
   constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService, private router: Router, private clientService: UserService) {}
 
-  ngOnInit(): void {}
-
-  login(): void {
-    this.auth.loginWithRedirect();
-  }
-
-  logout(): void {
-    this.auth.logout({ logoutParams: { returnTo: document.location.origin } });
+  ngOnInit(): void {
     this.auth.user$.subscribe(user => {
       if (user) {
         this.clientService.getUserByEmail(user.email)
           .then(res => {
             if (res) {
-              this.router.navigate(['/']); // Replace with the path to your home page
+           
             } else {
-              this.router.navigate(['/form']); // Replace with the path to your form
+              this.router.navigate(['/form']); // Remplacez par le chemin vers votre formulaire
             }
           })
           .catch(err => {
