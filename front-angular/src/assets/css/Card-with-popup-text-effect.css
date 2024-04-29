@@ -8,10 +8,11 @@ ul {
   list-style: none;
 }
 
+
 .main {
   width: 100%;
   max-width: 1200px;
-  height: 50vh;
+  height: auto;
   display: grid;
   place-items: center;
 }
@@ -23,6 +24,12 @@ ul {
   grid-auto-flow: row;
   justify-items: center;
   grid-gap: 1em;
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
 }
 
 .cards_item {

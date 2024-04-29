@@ -1,6 +1,8 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import axios from 'axios';
 import {AuthButtonComponent} from "../connection/connection.component";
+import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 
 interface Article {
   id: number;
@@ -17,7 +19,9 @@ interface Article {
   styleUrls: ['./commande-page.component.css'],
   standalone: true,
   imports: [
-    AuthButtonComponent
+    AuthButtonComponent,
+    CommonModule,
+    FormsModule
   ],
 })
 
@@ -28,6 +32,9 @@ interface Article {
 export class CommandePageComponent implements OnInit {
   articles: any[] = [];
   token: string = '';
+  panier: any[] = [];
+  total = 0;
+  detailsCommande: string = '';
 
   constructor() { }
 
@@ -51,7 +58,7 @@ export class CommandePageComponent implements OnInit {
   ngOnInit(): void {
     this.getToken();
 
-    axios.get('http://localhost:8080/commandes/articles', {
+    axios.get('http://localhost:8082/commandes/articles', {
       headers: {
         Authorization: `Bearer ${this.token}`
       }
@@ -61,7 +68,65 @@ export class CommandePageComponent implements OnInit {
         console.log(this.articles);
       })
       .catch((error) => {
-        console.error("Une erreure s'est produite lors de la récupération des articles avec le backend", error);
+        console.error("Une erreur s'est produite lors de la récupération des articles avec le backend", error);
+      });
+  }
+
+  addPanier(item: any) {
+    this.panier.push(item);
+    this.updateTotal();
+    console.log(this.panier);
+  }
+
+  removePanier(item: any) {
+    this.panier = this.panier.filter((element) => element !== item);
+    this.updateTotal();
+    console.log(this.panier);
+  }
+
+  updateTotal() {
+    this.total = 0;
+    this.panier.forEach((item) => {
+      this.total += item.prix;
+    });
+    return this.total;
+  }
+
+  getidClient() {
+    axios.get('http://localhost:8082/clients/client/create', {
+      headers: {
+        Authorization: `Bearer ${this.token}`
+      }
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error("Une erreur s'est produite lors de la récupération de l'identifiant du client", error);
+      });
+  }
+
+  validerPanier() {
+    let idarticles = this.panier.map((item) => item.id);
+    axios.post('http://localhost:8082/commandes/commandes/create', {
+      id_client: 1,
+      date_commande: new Date(),
+      id_restaurant: 1,
+      status: 'EnCours',
+      details: this.detailsCommande,
+      article: idarticles,
+    }, {
+      headers: {
+        Authorization: `Bearer ${this.token}`
+      }
+    })
+      .then((response) => {
+        console.log(response);
+        this.panier = [];
+        this.total = 0;
+      })
+      .catch((error) => {
+        console.error("Une erreur s'est produite lors de la validation du panier", error);
       });
   }
 }
