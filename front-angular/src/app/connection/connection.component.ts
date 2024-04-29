@@ -1,6 +1,8 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import {AsyncPipe, DOCUMENT, NgIf,CommonModule} from '@angular/common';
+import {AsyncPipe, DOCUMENT, NgIf} from '@angular/common';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service'; // Remplacez par le chemin vers votre service
 
 @Component({
   selector: 'app-auth-button',
@@ -15,17 +17,31 @@ import {AsyncPipe, DOCUMENT, NgIf,CommonModule} from '@angular/common';
       <button (click)="auth.loginWithRedirect()">CONNEXION</button>
     </ng-template>
   `,
-  styleUrls: ['./connection.component.css'], // Ajout du lien vers le fichier CSS
+  standalone: true,
   imports: [
     AsyncPipe,
     NgIf
   ],
-  standalone: true
+  styleUrls: ['./connection.component.css'] // Ajout du lien vers le fichier CSS
 })
-export class AuthButtonComponent {
-  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {
-    this.auth.isAuthenticated$.subscribe(value => {
-      console.log('Is authenticated:', value);
+export class AuthButtonComponent implements OnInit {
+  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService, private router: Router, private clientService: UserService) {}
+
+  ngOnInit(): void {
+    this.auth.user$.subscribe(user => {
+      if (user) {
+        this.clientService.getUserByEmail(user.email)
+          .then(res => {
+            if (res) {
+           
+            } else {
+              this.router.navigate(['/form']); // Remplacez par le chemin vers votre formulaire
+            }
+          })
+          .catch(err => {
+            console.error('Error while checking client:', err);
+          });
+      }
     });
   }
 }

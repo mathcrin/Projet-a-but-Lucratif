@@ -50,4 +50,13 @@ public class ClientController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/existsByEmail")
+    public ResponseEntity<Client> getClientByEmail(@RequestParam String email) {
+        Client client = clientService.getClientByEmail(email).block();
+        if (client != null) {
+            return new ResponseEntity<>(client, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
