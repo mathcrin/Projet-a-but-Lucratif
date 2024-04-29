@@ -3,6 +3,8 @@ import axios from 'axios';
 import {AuthButtonComponent} from "../connection/connection.component";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {AuthService} from "@auth0/auth0-angular";
+import { UserService } from '../user.service'
 
 interface Article {
   id: number;
@@ -36,7 +38,7 @@ export class CommandePageComponent implements OnInit {
   total = 0;
   detailsCommande: string = '';
 
-  constructor() { }
+  constructor(public auth: AuthService, private userService: UserService) { }
 
   async getToken(): Promise<void> {
     const url = 'https://dev-agy5tyj2bm0mtnps.us.auth0.com/oauth/token';
@@ -79,7 +81,10 @@ export class CommandePageComponent implements OnInit {
   }
 
   removePanier(item: any) {
-    this.panier = this.panier.filter((element) => element !== item);
+    const index = this.panier.findIndex((element) => element === item);
+    if (index !== -1) {
+      this.panier.splice(index, 1);
+    }
     this.updateTotal();
     console.log(this.panier);
   }
@@ -109,7 +114,7 @@ export class CommandePageComponent implements OnInit {
   validerPanier() {
     let idarticles = this.panier.map((item) => item.id);
     axios.post('http://localhost:8082/commandes/commandes/create', {
-      id_client: 1,
+      id_client: this.userService.currentUserId,
       date_commande: new Date(),
       id_restaurant: 1,
       status: 'EnCours',
