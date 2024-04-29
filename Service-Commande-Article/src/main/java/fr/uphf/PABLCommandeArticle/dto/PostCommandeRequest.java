@@ -19,6 +19,6 @@ public class PostCommandeRequest {
     private String details;
     private Integer idRestaurant;
     private String status;
-    private List<Long> articles;
+    private List<Integer> articles;
 }
 

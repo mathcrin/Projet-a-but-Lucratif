@@ -20,20 +20,20 @@ public class Commande {
     private Integer id;
 
     @Column(name = "id_client", nullable = false)
-    private Integer clientId;
+    private Integer idClient;
 
     @Column(name = "date_commande", nullable = false)
     private LocalDateTime dateCommande;
 
+    @Column(name = "details", nullable = false)
+    private String details;
+
     @Column(name = "id_restaurant", nullable = false)
-    private Integer restaurantId;
+    private Integer idRestaurant;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private Statut status;
-
-    @Column(name = "details", nullable = false)
-    private String details;
 
     @ManyToMany
     @JoinTable(

@@ -5,6 +5,8 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "@auth0/auth0-angular";
 import { UserService } from '../user.service'
+import {Router} from "@angular/router";
+import Cookies from 'js-cookie';
 
 interface Article {
   id: number;
@@ -38,7 +40,7 @@ export class CommandePageComponent implements OnInit {
   total = 0;
   detailsCommande: string = '';
 
-  constructor(public auth: AuthService, private userService: UserService) { }
+  constructor(public auth: AuthService, private userService: UserService, private router: Router) { }
 
   async getToken(): Promise<void> {
     const url = 'https://dev-agy5tyj2bm0mtnps.us.auth0.com/oauth/token';
@@ -59,6 +61,7 @@ export class CommandePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getToken();
+    const savedPanier = Cookies.get('panier');
 
     axios.get('http://localhost:8082/commandes/articles', {
       headers: {
@@ -67,6 +70,13 @@ export class CommandePageComponent implements OnInit {
     })
       .then((response) => {
         this.articles = response.data;
+        if (savedPanier) {
+          const savedPanierArray = JSON.parse(savedPanier);
+          this.panier = this.articles.filter((item) => {
+            return savedPanierArray.includes(item.id);
+          });
+          this.updateTotal();
+        }
         console.log(this.articles);
       })
       .catch((error) => {
@@ -77,6 +87,7 @@ export class CommandePageComponent implements OnInit {
   addPanier(item: any) {
     this.panier.push(item);
     this.updateTotal();
+    this.refreshCookiePanier();
     console.log(this.panier);
   }
 
@@ -86,6 +97,7 @@ export class CommandePageComponent implements OnInit {
       this.panier.splice(index, 1);
     }
     this.updateTotal();
+    this.refreshCookiePanier();
     console.log(this.panier);
   }
 
@@ -97,29 +109,26 @@ export class CommandePageComponent implements OnInit {
     return this.total;
   }
 
-  getidClient() {
-    axios.get('http://localhost:8082/clients/client/create', {
-      headers: {
-        Authorization: `Bearer ${this.token}`
-      }
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error("Une erreur s'est produite lors de la récupération de l'identifiant du client", error);
-      });
-  }
-
   validerPanier() {
+    if(this.panier.length === 0) {
+      window.alert('Vous devez remplir le panier avant de valider la commande');
+      return;
+    }
+    if (!this.userService.currentUserId) {
+      this.userService
+      window.alert('Vous devez être connecté pour valider la commande');
+      this.auth.loginWithRedirect()
+      return;
+    }
     let idarticles = this.panier.map((item) => item.id);
+    console.log(idarticles);
     axios.post('http://localhost:8082/commandes/commandes/create', {
-      id_client: this.userService.currentUserId,
-      date_commande: new Date(),
-      id_restaurant: 1,
-      status: 'EnCours',
+      idClient: this.userService.currentUserId,
+      dateCommande: new Date(),
       details: this.detailsCommande,
-      article: idarticles,
+      idRestaurant: 1,
+      status: 'EnCours',
+      articles: idarticles,
     }, {
       headers: {
         Authorization: `Bearer ${this.token}`
@@ -129,9 +138,22 @@ export class CommandePageComponent implements OnInit {
         console.log(response);
         this.panier = [];
         this.total = 0;
+        this.refreshCookiePanier();
+        window.alert('La commande a été passée avec succès, vous avez la journée pour venir la récupérer !');
+        // Rediriger l'utilisateur vers la page d'accueil
+        this.router.navigate(['/'])
       })
       .catch((error) => {
         console.error("Une erreur s'est produite lors de la validation du panier", error);
+        window.alert('Une erreur s\'est produite lors de la validation du panier');
+        console.log(this.userService.currentUserId);
       });
   }
+
+  refreshCookiePanier() {
+    let articles = this.panier.map((item) => item.id);
+    Cookies.set('panier', JSON.stringify(articles));
+  }
+
+  //vérifie ques les articles dans le panier sont toujours dans la liste des articles et met à jour les artticles en conséquence
 }

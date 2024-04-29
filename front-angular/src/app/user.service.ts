@@ -7,6 +7,7 @@ import axios from 'axios'; // Import axios
 export class UserService {
   currentUser: any = null;
   currentUserId: any = null;
+
   // Remplacez par l'URL de votre API
   private clientUrl = 'http://localhost:8083/clients/client'; // URL pour les requêtes liées aux clients
   redirectedToForm = false;
