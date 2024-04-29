@@ -38,4 +38,7 @@ public class ClientService {
         List<Client> clients = clientRepository.findAll();
         return Mono.just(clients.toString());
     }
+    public Mono<Client> getClientByEmail(String email) {
+        return Mono.justOrEmpty(clientRepository.findByMail(email));
+    }
 }
