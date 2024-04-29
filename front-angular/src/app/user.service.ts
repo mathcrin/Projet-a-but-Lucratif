@@ -5,9 +5,11 @@ import axios from 'axios'; // Import axios
   providedIn: 'root'
 })
 export class UserService {
+  currentUser: any = null;
+  currentUserId: any = null;
   // Remplacez par l'URL de votre API
   private clientUrl = 'http://localhost:8083/clients/client'; // URL pour les requêtes liées aux clients
-
+  redirectedToForm = false;
   // Entrez votre token ici
   private token = "";
   async getToken(): Promise<void> {
@@ -38,7 +40,10 @@ export class UserService {
       });
       // Si l'utilisateur existe, retournez les données de l'utilisateur
       // Sinon, retournez null ou undefined
-      return response.data ? response.data : null;
+      const user = response.data ? response.data : null;
+      this.currentUser = user; // Enregistrez les informations de l'utilisateur
+      this.currentUserId = user ? user.id : null; // Enregistrez l'ID de l'utilisateur
+      return user;
     } catch (err) {
       console.error('Error while checking client:', err);
     }

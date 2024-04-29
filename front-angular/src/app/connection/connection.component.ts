@@ -32,10 +32,9 @@ export class AuthButtonComponent implements OnInit {
       if (user) {
         this.clientService.getUserByEmail(user.email)
           .then(res => {
-            if (res) {
-           
-            } else {
-              this.router.navigate(['/form']); // Remplacez par le chemin vers votre formulaire
+            if (!res && !this.clientService.redirectedToForm) { // Ajoutez la vérification ici
+              this.clientService.redirectedToForm = true; // Mettez à jour l'état
+              this.router.navigate(['/form']); // Redirigez vers le formulaire
             }
           })
           .catch(err => {
@@ -43,5 +42,4 @@ export class AuthButtonComponent implements OnInit {
           });
       }
     });
-  }
-}
+  }}
