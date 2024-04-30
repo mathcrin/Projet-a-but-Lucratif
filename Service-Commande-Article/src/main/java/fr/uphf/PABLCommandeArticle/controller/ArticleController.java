@@ -13,7 +13,6 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/articles")
 public class ArticleController {

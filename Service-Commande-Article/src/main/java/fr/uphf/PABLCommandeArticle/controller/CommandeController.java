@@ -12,7 +12,6 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/commandes")
-@CrossOrigin(origins = "http://localhost:4200")
 public class CommandeController {
 
     @Autowired

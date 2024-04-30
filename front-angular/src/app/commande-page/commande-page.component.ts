@@ -59,11 +59,12 @@ export class CommandePageComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.getToken();
+  async ngOnInit() {
+    await this.getToken();
+    console.log(this.token);
     const savedPanier = Cookies.get('panier');
 
-    axios.get('http://localhost:8082/commandes/articles', {
+    axios.get('http://localhost:8080/commandes/articles', {
       headers: {
         Authorization: `Bearer ${this.token}`
       }
@@ -122,7 +123,7 @@ export class CommandePageComponent implements OnInit {
     }
     let idarticles = this.panier.map((item) => item.id);
     console.log(idarticles);
-    axios.post('http://localhost:8082/commandes/commandes/create', {
+    axios.post('http://localhost:8080/commandes/commandes/create', {
       idClient: this.userService.currentUserId,
       dateCommande: new Date(),
       details: this.detailsCommande,
