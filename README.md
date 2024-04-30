@@ -32,7 +32,7 @@ Se rendre dans le dossier "front-angular" et exécuter les commandes suivantes :
 
 -ng serve
 
-##Fonctionnalité initialement prévu
+## Fonctionnalité initialement prévu
 Au debut  nous voulions un systeme permettant a plusieurs restaurant de s'enregistrer et mettre a disposition leurs menu. Les clients aurait pu voir les différents restaurant et Menu associé puis passer une commande (En payant sur place ou directement sur l'application ) .
 
 ## Fonctionnalité Actuelle
