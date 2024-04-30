@@ -1,0 +1,212 @@
+
+--boundary_.oOo._ub9M6babmhPsktIT7k85BczbAFuFlldR
+Content-Length: 372
+Content-Type: application/octet-stream
+X-File-MD5: 0f02f9557627a474f255b7bc94a01552
+X-File-Mtime: 1714405578
+X-File-Path: /cours/M1/BDD-Repartie-Spring/TP/Projet-a-but-Lucratif/front-angular/src/app/user.service.spec.ts
+
+import { TestBed } from '@angular/core/testing';
+
+import { UserService } from './user.service';
+
+describe('ClientServiceService', () => {
+  let service: UserService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(UserService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});
+
+--boundary_.oOo._ub9M6babmhPsktIT7k85BczbAFuFlldR
+Content-Length: 502
+Content-Type: application/octet-stream
+If-Match: "f24d828a6cf766a7a133ebe31d77de25"
+X-File-MD5: 5e5d8d0b05ac1d809fe22d4ecd05122e
+X-File-Mtime: 1714403401
+X-File-Path: /cours/M1/BDD-Repartie-Spring/TP/Projet-a-but-Lucratif/front-angular/src/app/nav-bar/nav-bar.component.ts
+
+import { Component } from '@angular/core';
+import {RouterLink} from "@angular/router";
+import {AuthButtonComponent} from "../connection/connection.component";
+import {UserProfileComponent} from "../info/info.component";
+
+@Component({
+  selector: 'app-nav-bar',
+  standalone: true,
+  imports: [
+    RouterLink,
+    AuthButtonComponent,
+    UserProfileComponent
+  ],
+  templateUrl: './nav-bar.component.html',
+  styleUrl: './nav-bar.component.css'
+})
+export class NavBarComponent {
+
+}
+
+--boundary_.oOo._ub9M6babmhPsktIT7k85BczbAFuFlldR
+Content-Length: 1253
+Content-Type: application/octet-stream
+If-Match: "88ce9fbbcc794edd70bd12bb5bcb1b7b"
+X-File-MD5: 9ad66c9708a2005059fd4516fc7f27a2
+X-File-Mtime: 1714418324
+X-File-Path: /cours/M1/BDD-Repartie-Spring/TP/Projet-a-but-Lucratif/front-angular/src/app/nav-bar/nav-bar.component.html
+
+<h1 class="text-center text-white d-none d-lg-block site-heading"><span class="text-primary site-heading-upper mb-3">VOs MEILLEURS SUHIS A PETIT PRIX&nbsp;</span><span class="site-heading-lower">8 Etoiles</span></h1>
+<nav class="navbar navbar-expand-lg bg-dark py-lg-4 navbar-dark" id="mainNav">
+  <div class="container"><a class="navbar-brand text-uppercase d-lg-none text-expanded" href="#">Brand</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" routerLink="/">ACCUEIL</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about">A PROPOS DE NOUS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/menu">MENU</a></li>
+        <li class="nav-item"><a class="nav-link" href="/restaurant">Restaurants</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/commander">COMMANDER</a></li>
+        <li class="nav-item"><app-auth-button></app-auth-button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+--boundary_.oOo._ub9M6babmhPsktIT7k85BczbAFuFlldR
+Content-Length: 847691
+Content-Type: application/octet-stream
+If-Match: "f9468f1dbbde6b3136f606d9f9a66a71"
+X-File-MD5: a897671fab4a8bcbbf200726b39a3ddf
+X-File-Mtime: 1714426071
+X-File-Path: /cours/M1/BDD-Repartie-Spring/TP/Projet-a-but-Lucratif/front-angular/package-lock.json
+
+{
+  "name": "front-angular",
+  "version": "0.0.0",
+  "lockfileVersion": 2,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "front-angular",
+      "version": "0.0.0",
+      "dependencies": {
+        "@angular/animations": "^17.1.0",
+        "@angular/common": "^17.1.0",
+        "@angular/compiler": "^17.1.0",
+        "@angular/core": "^17.1.0",
+        "@angular/forms": "^17.1.0",
+        "@angular/platform-browser": "^17.1.0",
+        "@angular/platform-browser-dynamic": "^17.1.0",
+        "@angular/router": "^17.1.0",
+        "@auth0/auth0-angular": "^2.2.3",
+        "@types/js-cookie": "^3.0.6",
+        "axios": "^1.6.8",
+        "bootstrap": "^5.3.3",
+        "js-cookie": "^3.0.5",
+        "rxjs": "~7.8.0",
+        "tslib": "^2.3.0",
+        "zone.js": "~0.14.3"
+      },
+      "devDependencies": {
+        "@angular-devkit/build-angular": "^17.1.2",
+        "@angular/cli": "^17.1.2",
+        "@angular/compiler-cli": "^17.1.0",
+        "@types/jasmine": "~5.1.0",
+        "jasmine-core": "~5.1.0",
+        "karma": "~6.4.0",
+        "karma-chrome-launcher": "~3.2.0",
+        "karma-coverage": "~2.2.0",
+        "karma-jasmine": "~5.1.0",
+        "karma-jasmine-html-reporter": "~2.1.0",
+        "typescript": "~5.3.2"
+      }
+    },
+    "node_modules/@ampproject/remapping": {
+      "version": "2.3.0",
+      "resolved": "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.3.0.tgz",
+      "integrity": "sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==",
+      "dev": true,
+      "dependencies": {
+        "@jridgewell/gen-mapping": "^0.3.5",
+        "@jridgewell/trace-mapping": "^0.3.24"
+      },
+      "engines": {
+        "node": ">=6.0.0"
+      }
+    },
+    "node_modules/@angular-devkit/architect": {
+      "version": "0.1703.2",
+      "resolved": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.1703.2.tgz",
+      "integrity": "sha512-fT5gSzwDHOyGv8zF97t8rjeoYSGSxXjWWstl3rN1nXdO0qgJ5m6Sv0fupON+HltdXDCBLRH+2khNpqx/Fh0Qww==",
+      "dev": true,
+      "dependencies": {
+        "@angular-devkit/core": "17.3.2",
+        "rxjs": "7.8.1"
+      },
+      "engines": {
+        "node": "^18.13.0 || >=20.9.0",
+        "npm": "^6.11.0 || ^7.5.6 || >=8.0.0",
+        "yarn": ">= 1.13.0"
+      }
+    },
+    "node_modules/@angular-devkit/build-angular": {
+      "version": "17.3.2",
+      "resolved": "https://registry.npmjs.org/@angular-devkit/build-angular/-/build-angular-17.3.2.tgz",
+      "integrity": "sha512-muPCUyL0uHvRkLH4NLWiccER6P2vCm/Q5DDvqyN4XOzzY3tAHHLrKrpvY87sgd2oNJ6Ci8x7GPNcfzR5KELCnw==",
+      "dev": true,
+      "dependencies": {
+        "@ampproject/remapping": "2.3.0",
+        "@angular-devkit/architect": "0.1703.2",
+        "@angular-devkit/build-webpack": "0.1703.2",
+        "@angular-devkit/core": "17.3.2",
+        "@babel/core": "7.24.0",
+        "@babel/generator": "7.23.6",
+        "@babel/helper-annotate-as-pure": "7.22.5",
+        "@babel/helper-split-export-declaration": "7.22.6",
+        "@babel/plugin-transform-async-generator-functions": "7.23.9",
+        "@babel/plugin-transform-async-to-generator": "7.23.3",
+        "@babel/plugin-transform-runtime": "7.24.0",
+        "@babel/preset-env": "7.24.0",
+        "@babel/runtime": "7.24.0",
+        "@discoveryjs/json-ext": "0.5.7",
+        "@ngtools/webpack": "17.3.2",
+        "@vitejs/plugin-basic-ssl": "1.1.0",
+        "ansi-colors": "4.1.3",
+        "autoprefixer": "10.4.18",
+        "babel-loader": "9.1.3",
+        "babel-plugin-istanbul": "6.1.1",
+        "browserslist": "^4.21.5",
+        "copy-webpack-plugin": "11.0.0",
+        "critters": "0.0.22",
+        "css-loader": "6.10.0",
+        "esbuild-wasm": "0.20.1",
+        "fast-glob": "3.3.2",
+        "http-proxy-middleware": "2.0.6",
+        "https-proxy-agent": "7.0.4",
+        "inquirer": "9.2.15",
+        "jsonc-parser": "3.2.1",
+        "karma-source-map-support": "1.4.0",
+        "less": "4.2.0",
+        "less-loader": "11.1.0",
+        "license-webpack-plugin": "4.0.2",
+        "loader-utils": "3.2.1",
+        "magic-string": "0.30.8",
+        "mini-css-extract-plugin": "2.8.1",
+        "mrmime": "2.0.0",
+        "open": "8.4.2",
+        "ora": "5.4.1",
+        "parse5-html-rewriting-stream": "7.0.0",
+        "picomatch": "4.0.1",
+        "piscina": "4.4.0",
+        "postcss": "8.4.35",
+        "postcss-loader": "8.1.1",
+        "resolve-url-loader": "5.0.0",
+        "rxjs": "7.8.1",
+        "sass": "1.71.1",
+        "sass-loader": "14.1.1",
+        "semver": "7.6.0",
+        "source-map-loader": "5.0.0",
+   

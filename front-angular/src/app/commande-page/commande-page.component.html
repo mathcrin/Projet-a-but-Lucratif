@@ -1,0 +1,41 @@
+<section class="page-section clearfix" style="display: flex;justify-content: center; align-items: center">
+  <div class="container text-bg-primary py-4 py-xl-5">
+    <div class="row mb-5">
+      <div class="col-md-8 col-xl-6 col-xxl-8 text-center mx-auto">
+        <h2>Choisissez, Commandez et Retirez votre comande </h2>
+        <p class="w-lg-50">Vous pouvez venir retirer votre commande n&#39;importe quand le jour même*</p>
+      </div>
+
+    </div>
+    <div class="main" style="height: auto">
+      <ul class="cards">
+        <li class="cards_item" *ngFor="let item of articles">
+          <div class="card">
+            <div class="card_image"><img [src]="'assets/img/plat/' + item.id + '.jpg'"  [alt]="item.ingredients" /></div>
+            <div class="card_content">
+              <h2 class="card_title">{{item.nom}} <span>{{item.prix}}</span></h2>
+              <div class="card_text">
+                <p>{{item.ingredients}}</p>
+              </div>
+              <button class="btn btn-primary"  (click)="addPanier(item)">Ajouter au panier</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="cart" style="position: fixed; right: 0; top: 0; width: 250px; height: 100vh; overflow-y: auto; background-color: #f8f9fa; padding: 20px;">
+      <h2>Panier</h2>
+      <ul>
+        <li *ngFor="let item of panier">
+          <p>{{item.nom}} {{item.prix}}€</p>
+          <button class="btn btn-secondary" (click)="removePanier(item)">Supprimer</button>
+          <hr>
+        </li>
+      </ul>
+      <h3>Total : {{total}}€</h3>
+      <textarea [(ngModel)]="detailsCommande" placeholder="information à transmettre pour la commande(cuisson spécifique, ingrédient à enlever, etc)" style="width: 100%; height: 100px;"></textarea>
+      <button class="btn btn-primary" (click)="validerPanier()">Valider</button>
+    </div>
+
+  </div>
+</section>

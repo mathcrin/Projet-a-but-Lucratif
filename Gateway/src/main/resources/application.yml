@@ -1,0 +1,46 @@
+auth0:
+  audience: http://locaalhost:8080
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-agy5tyj2bm0mtnps.us.auth0.com/
+  application:
+    name: gateway-service
+  cloud:
+    inetutils:
+      default-hostname: localhost
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
+      routes:
+        - id: commandes-id
+          uri: lb://commandes
+          predicates:
+            - Path=/commandes/**
+        - id: clients-id
+          uri: lb://clients
+          predicates:
+            - Path=/clients/**
+        - id: restaurants-id
+          uri: lb://restaurants
+          predicates:
+            - Path=/restaurants/**
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+logging:
+  level:
+    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: TRACE

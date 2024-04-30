@@ -1,0 +1,9 @@
+button {
+  background-color:rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+  border: none;
+  color: rgba(255, 255, 255, .7);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: .9rem;
+  padding-top: 7px;
+}
