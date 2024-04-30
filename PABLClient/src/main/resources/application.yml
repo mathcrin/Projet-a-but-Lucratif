@@ -13,6 +13,11 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+  rabbitmq:
+    host: xn--connects-h1a.fr
+    port: 5672
+    username: guest
+    password: SpringBoot30AngularRabbitMQ04
 
 server:
   servlet:
@@ -21,3 +26,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+

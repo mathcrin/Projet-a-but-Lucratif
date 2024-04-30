@@ -13,7 +13,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class PostArticleRequest {
-    private Integer id;
     private Integer idRestaurant;
     private String ingredients;
     private String nom;
