@@ -38,7 +38,7 @@ Au debut  nous voulions un systeme permettant a plusieurs restaurant de s'enregi
 ## Fonctionnalité Actuelle
 Systeme permettant a un restaurant de proposer son menu. Les clients peuvent (se connecter/ sinscrire),voir le menu du restaurant puis passer une commande (En payant sur place) .
 
-##Fonctionnalité future possible
+## Fonctionnalité future possible
 -Régler les Très Problable Problème de securité (ce qui nécessiterais biens plus de temps et de connaissances)
 -Page pour l'inscription d'un restaurant 
 -Page pour l'intégration des menu et photos par le restaurant 
