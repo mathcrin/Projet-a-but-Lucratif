@@ -7,6 +7,7 @@ import {AuthService} from "@auth0/auth0-angular";
 import { UserService } from '../user.service'
 import {Router} from "@angular/router";
 import Cookies from 'js-cookie';
+import {convertOutputFile} from "@angular-devkit/build-angular/src/tools/esbuild/utils";
 
 interface Article {
   id: number;
@@ -123,9 +124,11 @@ export class CommandePageComponent implements OnInit {
     }
     let idarticles = this.panier.map((item) => item.id);
     console.log(idarticles);
+    let now = new Date();
+    let localDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours()+2, now.getMinutes(), now.getSeconds(), now.getMilliseconds());
     axios.post('http://localhost:8080/commandes/commandes/create', {
       idClient: this.userService.currentUserId,
-      dateCommande: new Date(),
+      dateCommande: localDate,
       details: this.detailsCommande,
       idRestaurant: 1,
       status: 'EnCours',
