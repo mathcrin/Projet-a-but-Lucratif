@@ -48,14 +48,20 @@ Systeme permettant a un restaurant de proposer son menu. Les clients peuvent (se
 #Identifiant de connection au service externes
 ## BDD : 
 url : https://adminer.xn--connects-h1a.fr/?server=springboot-db-1&username=root
+
 server: springboot-db-1
+
 user: root
+
 mdp: springboot-PABL-25.03.2024
+
 base de données : laisser vide 
 
 ## Rabbit MQ web serveur : 
-connection rabbitMQ : 
+
 http://xn--connects-h1a.fr:15672/
+
 user : guest
+
 mdp : SpringBoot30AngularRabbitMQ04 
 
