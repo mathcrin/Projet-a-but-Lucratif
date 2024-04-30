@@ -4,6 +4,7 @@ import fr.uphf.PABLClient.DTO.CreateClientRequest;
 import fr.uphf.PABLClient.DTO.CreateClientResponse;
 import fr.uphf.PABLClient.entity.Client;
 import fr.uphf.PABLClient.repository.ClientRepository;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -14,7 +15,8 @@ import java.util.List;
 @Service
 
 public class ClientService {
-
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
     @Autowired
     private ClientRepository clientRepository;
 
@@ -25,7 +27,10 @@ public class ClientService {
         client.setAddresse(request.getAddresse());
         client.setMail(request.getMail());
         client.setTelephone(request.getTelephone());
-        return Mono.just(clientRepository.save(client));
+        Client savedClient = clientRepository.save(client);
+        String message = "Un nouveau client a été créé: " + savedClient.getMail().toString();
+        rabbitTemplate.convertAndSend("client_created_queue", message);
+        return Mono.just(savedClient);
     }
     public Mono<CreateClientResponse> getClient(Long id) {
         return Flux.fromStream(
