@@ -45,23 +45,5 @@ Systeme permettant a un restaurant de proposer son menu. Les clients peuvent (se
 -Page et système de payement 
 -Le payement implique la possibilité d'integrer un système de suivit de livraison 
 
-#Identifiant de connection au service externes
-## BDD : 
-url : https://adminer.xn--connects-h1a.fr/?server=springboot-db-1&username=root
 
-server: springboot-db-1
-
-user: root
-
-mdp: springboot-PABL-25.03.2024
-
-base de données : laisser vide 
-
-## Rabbit MQ web serveur : 
-
-http://xn--connects-h1a.fr:15672/
-
-user : guest
-
-mdp : SpringBoot30AngularRabbitMQ04 
 
