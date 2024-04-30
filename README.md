@@ -1,6 +1,8 @@
 # Reflexion sur le projet :
 ## MCD : 
 
+![MCD](https://github.com/mathcrin/Projet-a-but-Lucratif/assets/73893829/9cac4067-2766-4113-8c44-f7d80dc77dda)
+
 ## Problème rencontré : 
  Soucis de CORS policy lors d'envoi de requête depuis le front vers le backend 
 
