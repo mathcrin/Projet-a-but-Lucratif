@@ -9,7 +9,7 @@ export class UserService {
   currentUserId: any = null;
 
   // Remplacez par l'URL de votre API
-  private clientUrl = 'http://localhost:8083/clients/client'; // URL pour les requêtes liées aux clients
+  private clientUrl = 'http://localhost:8080/clients/client'; // URL pour les requêtes liées aux clients
   redirectedToForm = false;
   // Entrez votre token ici
   private token = "";
@@ -31,19 +31,17 @@ export class UserService {
   }
 
   async getUserByEmail(email: string | undefined) {
-    this.getToken();
+    await this.getToken(); // Add await here
     console.log(email);
     try {
-      const response = await axios.get(`http://localhost:8083/clients/client/existsByEmail?email=${email}`, {
+      const response = await axios.get(`http://localhost:8080/clients/client/existsByEmail?email=${email}`, {
         headers: {
           'Authorization': `Bearer ${this.token}`
         }
       });
-      // Si l'utilisateur existe, retournez les données de l'utilisateur
-      // Sinon, retournez null ou undefined
       const user = response.data ? response.data : null;
-      this.currentUser = user; // Enregistrez les informations de l'utilisateur
-      this.currentUserId = user ? user.id : null; // Enregistrez l'ID de l'utilisateur
+      this.currentUser = user;
+      this.currentUserId = user ? user.id : null;
       return user;
     } catch (err) {
       console.error('Error while checking client:', err);
