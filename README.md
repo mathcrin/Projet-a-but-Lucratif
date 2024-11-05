@@ -91,7 +91,7 @@ Systeme permettant a un restaurant de proposer son menu. Les clients peuvent (se
 
 
 # Les membres de notre équipe : 
-Nahan Galfano, Kokou Jean-Luc N'TSOUVI ,Mathis Crinchon
+__Nahan Galfano__, __Kokou Jean-Luc N'TSOUVI__ et __Mathis Crinchon__
 
 
 
